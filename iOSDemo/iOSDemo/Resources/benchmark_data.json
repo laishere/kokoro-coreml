@@ -1,0 +1,43 @@
+{
+  "voice": "af_heart",
+  "lang": "a",
+  "sample_rate": 24000,
+  "cases": [
+    {
+      "id": 0,
+      "text": "Hello there.",
+      "phonemes": "həlˈO ðˈɛɹ.",
+      "n_phonemes": 11
+    },
+    {
+      "id": 1,
+      "text": "The early morning sun cast long shadows across the empty street.",
+      "phonemes": "ði ˈɜɹli mˈɔɹnɪŋ sˈʌn kˈæst lˈɔŋ ʃˈædOz əkɹˈɔs ði ˈɛmpti stɹˈit.",
+      "n_phonemes": 64
+    },
+    {
+      "id": 2,
+      "text": "She had been waiting for nearly an hour. The bus, as usual, was late. A cold wind picked up, rustling the leaves at her feet.",
+      "phonemes": "ʃˌi hæd bɪn wˈATɪŋ fɔɹ nˈɪɹli ɐn ˈWəɹ. ðə bˈʌs, æz jˈuʒəwəl, wʌz lˈAt. ɐ kˈOld wˈɪnd pˈɪkt ˌʌp, ɹˈʌsᵊlɪŋ ðə lˈivz æt hɜɹ fˈit.",
+      "n_phonemes": 126
+    },
+    {
+      "id": 3,
+      "text": "In the quiet town of Millbrook, news traveled faster than the wind. By the time the sheriff arrived at the scene, half the residents had already gathered, whispering theories and trading half-remembered facts. Nobody really knew what had happened, but everybody had an opinion.",
+      "phonemes": "ɪn ðə kwˈIət tˈWn ʌv mˈɪlbɹʊk, nˈuz tɹˈævəld fˈæstəɹ ðən ðə wˈɪnd. bˌI ðə tˈIm ðə ʃˈɛɹəf əɹˈIvd æt ðə sˈin, hˈæf ðə ɹˈɛzədᵊnts hæd ˌɔlɹˈɛdi ɡˈæðəɹd, wˈɪspəɹɪŋ θˈɪɹiz ænd tɹˈAdɪŋ hˌæfɹəmˈɛmbəɹd fˈækts. nˈObˌɑdi ɹˈiᵊli nˈu wˌʌt hæd hˈæpənd, bˌʌt ˈɛvɹibədi hæd ɐn əpˈɪnjᵊn.",
+      "n_phonemes": 270
+    },
+    {
+      "id": 4,
+      "text": "The expedition departed on March 14th, 1923, with twelve men, three sleds, and provisions enough for sixty days. Within two weeks, a sudden blizzard had separated the lead party from the supply train; what should have been a routine crossing became a desperate fight for survival. By the time rescue arrived, only four members of the original team remained, their journals later hailed as a remarkable record of polar exploration.",
+      "phonemes": "ði ˌɛkspədˈɪʃən dəpˈɑɹTᵻd ˌɔn mˈɑɹʧ fˌɔɹtˈinθ, nˌIntˈin twˈɛnti θɹˈi, wɪð twˈɛlv mˈɛn, θɹˈi slˈɛdz, ænd pɹəvˈɪʒᵊnz ɪnˈʌf fɔɹ sˈɪksti dˈAz. wɪðˈɪn tˈu wˈiks, ɐ sˈʌdᵊn blˈɪzəɹd hæd sˈɛpəɹˌATᵻd ðə lˈid pˈɑɹTi fɹʌm ðə səplˈI tɹˈAn; wˌʌt ʃˌʊd hæv bɪn ɐ ɹutˈin kɹˈɔsɪŋ bəkˈAm ɐ dˈɛspəɹət fˈIt fɔɹ səɹvˈIvᵊl. bˌI ðə tˈIm ɹˈɛskju əɹˈIvd, ˈOnli fˈɔɹ mˈɛmbəɹz ʌv ði əɹˈɪʤənᵊl tˈim ɹəmˈAnd, ðɛɹ ʤˈɜɹnᵊlz lˈATəɹ hˈAld æz ɐ ɹəmˈɑɹkəbᵊl ɹˈɛkəɹd ʌv pˈOləɹ ˌɛkspləɹˈAʃən.",
+      "n_phonemes": 455
+    },
+    {
+      "id": 5,
+      "text": "The history of human flight is, in many respects, a history of stubborn refusal. For thousands of years, observers watched birds soar effortlessly above them and concluded that humans were not meant to join them. Yet inventors persisted. They built wings of feathers and wax; gliders of silk and bamboo; balloons filled with hydrogen, helium, or simply hot air from a smoky fire. Each failure taught something new about lift, drag, and the curious behavior of fluids over these curved surfaces.",
+      "phonemes": "ðə hˈɪstəɹi ʌv hjˈumən flˈIt ɪz, ɪn mˈɛni ɹəspˈɛkts, ɐ hˈɪstəɹi ʌv stˈʌbəɹn ɹəfjˈuzᵊl. fˌɔɹ θˈWzᵊndz ʌv jˈɪɹz, əbzˈɜɹvəɹz wˈɑʧt bˈɜɹdz sˈɔɹ ˈɛfəɹtləsli əbˈʌv ðˌɛm ænd kənklˈudᵻd ðæt hjˈumənz wɜɹ nˌɑt mˈɛnt tə ʤˈYn ðˌɛm. jˈɛt ɪnvˈɛntəɹz pəɹsˈɪstᵻd. ðˌA bˈɪlt wˈɪŋz ʌv fˈɛðəɹz ænd wˈæks; ɡlˈIdəɹz ʌv sˈɪlk ænd bˌæmbˈu; bəlˈunz fˈɪld wɪð hˈIdɹəʤᵊn, hˈiliəm, ɔɹ sˈɪmpli hˈɑt ˈɛɹ fɹʌm ɐ smˈOki fˈIəɹ. ˈiʧ fˈAljəɹ tˈɔt sˈʌmθˌɪŋ nˈu əbˈWt lˈɪft, dɹˈæɡ, ænd ðə kjˈʊɹiəs bəhˈAvjəɹ ʌv flˈuɪdz ˈOvəɹ ðiz kˈɜɹvd sˈɜɹfəsᵻz.",
+      "n_phonemes": 510
+    }
+  ]
+}

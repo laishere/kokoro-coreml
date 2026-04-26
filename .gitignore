@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+output/
+.python-version
+uv.lock
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.xcworkspace/xcuserdata/
+
+# iOSDemo
+iOSDemo/iOSDemo/Models/*.mlpackage
