@@ -51,6 +51,8 @@ Same chain runs on iPhone via `iOSDemo/`. Mean **16.9× real-time** on iPhone 16
 
 <img src="images/iPhone16ProBenchmark.png" alt="iPhone 16 Pro benchmark" width="320">
 
+To run the demo, drop the 7 mlpackages from `output/` (after `convert.py`) into `iOSDemo/iOSDemo/Models/`. The `Resources/` folder ships the precomputed phonemes (`benchmark_data.json`), the `af_heart` voice (`af_heart.bin`, 510×256 fp32), and the phoneme `vocab.json` — regenerate with `uv run python dump_benchmark_data.py` if you edit the benchmark texts. G2P runs offline in Python so the app doesn't need espeak-ng.
+
 ## Stages and compute placement
 
 | Stage | Precision | Compute Unit | Role |
