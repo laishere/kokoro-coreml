@@ -1,6 +1,6 @@
 # kokoro-coreml
 
-Convert Kokoro TTS to CoreML — fp16+int8pal preset, **25× real-time on M4 Mac Mini**, **17× on iPhone 16 Pro**, with the bulk of the workload running on ANE.
+Convert Kokoro TTS to CoreML — fp16+int8pal preset (80MB), **25× real-time on M4 Mac Mini**, **17× on iPhone 16 Pro**, with the bulk of the workload running on ANE.
 
 Produces 7 mlpackages: `KokoroAlbert`, `KokoroPostAlbert`, `KokoroAlignment`, `KokoroProsody`, `KokoroNoise`, `KokoroVocoder`, `KokoroTail`.
 
@@ -83,4 +83,4 @@ This pipeline is the result of a long sequence of dead ends. Key lessons:
 
 **Int8 palettization on vocoder is safe here** because its audio output is discarded — palette artifacts never reach the listener. The fp32 Tail (which produces audio) is unpalettized.
 
-**Distillation was a detour that surfaced the noise-stream insight.** We suspected the vocoder's `ConvTranspose1d` upsamples were the ANE blocker, so we distilled into a generator with `nearest-neighbor upsample + Conv1d` in place of `ConvTranspose1d`. The distilled student compiled, but most ops still wouldn't schedule onto ANE; bisecting why led to the dual-`RangeDim` scheduler blocker — splitting the noise generator into its own mlpackage fixed it. Quality issues in the student were closed separately by better training (improved losses, layer-tuning pretrain, then MPD adversarial training). Once the noise split was understood, the same split applied to the original (undistilled) vocoder, so distillation was dropped from the shipping pipeline.
+**Distillation was a detour that surfaced the noise-stream insight.** I suspected the vocoder's `ConvTranspose1d` upsamples were the ANE blocker, so I distilled into a generator with `nearest-neighbor upsample + Conv1d` in place of `ConvTranspose1d`. The distilled student compiled, but most ops still wouldn't schedule onto ANE; bisecting why led to the dual-`RangeDim` scheduler blocker — splitting the noise generator into its own mlpackage fixed it. Quality issues in the student were closed separately by better training (improved losses, layer-tuning pretrain, then MPD adversarial training). Once the noise split was understood, the same split applied to the original (undistilled) vocoder, so distillation was dropped from the shipping pipeline.
