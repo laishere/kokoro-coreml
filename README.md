@@ -25,11 +25,20 @@ Outputs the 7 mlpackages plus `ref.wav` (PyTorch) and `test.wav` (CoreML chain) 
 
 ## Benchmark
 
+| # | T_enc | Audio | Passage |
+|---|---|---|---|
+| 1 |  13 | [passage_1_13tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_1_13tok.wav)  | "Hello there." |
+| 2 |  66 | [passage_2_66tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_2_66tok.wav)  | "The early morning sun cast long shadows…" |
+| 3 | 128 | [passage_3_128tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_3_128tok.wav) | "She had been waiting for nearly an hour…" |
+| 4 | 272 | [passage_4_272tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_4_272tok.wav) | "In the quiet town of Millbrook…" |
+| 5 | 457 | [passage_5_457tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_5_457tok.wav) | "The expedition departed on March 14th, 1923…" |
+| 6 | 512 | [passage_6_512tok.wav](https://github.com/laishere/kokoro-coreml/raw/main/assets/passage_6_512tok.wav) | "The history of human flight…" (510-phoneme cap) |
+
 ```bash
 uv run python benchmark.py
 ```
 
-Six real prose passages (T_enc 13 → 512). **25× real-time** on a max-length 510-phoneme paragraph (28s audio in ~1.1s, measured on M4 Mac Mini 24GB).
+Six real prose passages (T_enc 13 → 512). **25× real-time** on a max-length 510-phoneme paragraph (28s audio in ~1.1s, measured on M4 Mac Mini 24GB). WAVs written to `output/benchmark/`.
 
 ```
 ========================================================================
@@ -49,7 +58,7 @@ Mean speed: 25.0x real-time  (higher is faster; >1.0x = real-time)
 
 Same chain runs on iPhone via `iOSDemo/`. Mean **16.9× real-time** on iPhone 16 Pro across the same six passages.
 
-<img src="images/iPhone16ProBenchmark.png" alt="iPhone 16 Pro benchmark" width="320">
+<img src="assets/iPhone16ProBenchmark.png" alt="iPhone 16 Pro benchmark" width="320">
 
 To run the demo, drop the 7 mlpackages from `output/` (after `convert.py`) into `iOSDemo/iOSDemo/Models/`. The `Resources/` folder ships the precomputed phonemes (`benchmark_data.json`), the `af_heart` voice (`af_heart.bin`, 510×256 fp32), and the phoneme `vocab.json` — regenerate with `uv run python dump_benchmark_data.py` if you edit the benchmark texts. G2P runs offline in Python so the app doesn't need espeak-ng.
 

@@ -5,6 +5,8 @@ output/
 .python-version
 uv.lock
 .DS_Store
+tmp/
+.claude
 
 # Xcode
 xcuserdata/

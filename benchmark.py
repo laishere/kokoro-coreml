@@ -1,11 +1,12 @@
 """Benchmark CoreML pipeline: per-stage latency + speed over varying lengths.
 
 Usage:
-    .venv/bin/python benchmark.py [--n-runs 5] [--max-frames 600]
+    .venv/bin/python benchmark.py [--n-runs 5]
 
 For each test sentence, runs the 7-model chain end-to-end, reports per-stage
 latency (median over n-runs after warmup), end-to-end chain time, audio
 duration, and speed multiplier (audio_duration / chain_time, in × real-time).
+Also writes each passage's rendered audio to `output/benchmark/passage_{i}_{T_enc}tok.wav`.
 """
 import argparse
 import pathlib
@@ -14,12 +15,14 @@ import time
 
 import coremltools as ct
 import numpy as np
+import soundfile as sf
 import torch
 
 from kokoro import KModel
 from kokoro.pipeline import KPipeline
 
 MODELS_DIR = pathlib.Path(__file__).parent / "output"
+SAMPLES_DIR = MODELS_DIR / "benchmark"
 SR = 24000
 
 # Real prose passages — varied prosody, punctuation, and content.
@@ -120,10 +123,11 @@ def main():
     m_tail   = ct.models.MLModel(str(MODELS_DIR / 'KokoroTail.mlpackage'),       compute_units=CU_ALL)
 
     sentences = build_sentences(pipe)
+    SAMPLES_DIR.mkdir(parents=True, exist_ok=True)
     rows = []
     stage_rows = []
 
-    for phonemes in sentences:
+    for idx, phonemes in enumerate(sentences):
         input_ids = encode_phonemes(model, phonemes)
         T_enc = input_ids.shape[1]
         ref_s = voice_pack[max(min(len(phonemes) - 1, voice_pack.shape[0] - 1), 0)]
@@ -188,8 +192,12 @@ def main():
         tail_feed = {"x_pre": np.array(o6["x_pre"]).astype(np.float32)}
         o7 = m_tail.predict(tail_feed)
 
-        audio_samples = int(np.array(o7["audio"]).size)
+        audio_arr = np.array(o7["audio"]).flatten().astype(np.float32)
+        audio_samples = audio_arr.size
         audio_dur_s = audio_samples / SR
+
+        wav_path = SAMPLES_DIR / f"passage_{idx+1}_{T_enc}tok.wav"
+        sf.write(str(wav_path), audio_arr, SR)
 
         # Per-stage timings
         stages = [
